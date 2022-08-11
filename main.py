@@ -38,9 +38,9 @@ while game_on:
     # detect collision with tail
     for body_block in snake.snake_body[1:]:
         if snake.head.distance(body_block) < 10:
-            game_on = False
-            board.game_over()
-
+            # game_on = False
+            # board.game_over()
+            snake.reset()
 
 # hold the screen until click exit
 scr.exitonclick()

@@ -39,6 +39,15 @@ class Snake:
             xy_pos = (self.x_start - self.snake_body_size * idx, self.y_start)
             self.add_body_block(xy_pos)
 
+    def reset(self):
+        for seg in self.snake_body:
+            seg.goto(1000, 1000)
+        self.snake_body.clear()
+        self.birth()
+        self.head = self.snake_body[0]
+        # self.snake_body = self.snake_body[1:3]
+        # self.head.goto(self.x_start, self.y_start)
+
     # add a snake body block once it eats a food
     def add_body_block(self, xy_pos):
         """Add another body block to itself"""

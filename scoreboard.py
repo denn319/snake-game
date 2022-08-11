@@ -18,7 +18,7 @@ class ScoreBoard(Turtle):
 
     def display_score(self):
         self.clear()
-        self.write(f"Score: {self.score}", align=ALIGN, font=FONT)
+        self.write(f"High score: {self.hiscore} Score: {self.score}", align=ALIGN, font=FONT)
 
     def reset_pos(self):
         # x_new = (self.shapesize + 600 / 2)

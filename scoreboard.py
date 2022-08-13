@@ -2,6 +2,7 @@ from turtle import Turtle
 
 ALIGN = "center"
 FONT = ("Courier", 20, "normal")
+SCORE_FILE_NAME = "data.txt"
 
 
 class ScoreBoard(Turtle):
@@ -12,7 +13,8 @@ class ScoreBoard(Turtle):
         self.hideturtle()
         self.color("white")
         self.score = 0
-        self.hiscore = 0
+        with open(SCORE_FILE_NAME, mode="r") as data:
+            self.hiscore = int(data.read())
         self.setpos(0, 260)
         self.display_score()
 
@@ -32,6 +34,7 @@ class ScoreBoard(Turtle):
         if self.hiscore < self.score:
             self.hiscore = self.score
         self.display_score()
+        self.save_score()
 
     def reset_score(self):
         self.score = 0
@@ -41,3 +44,9 @@ class ScoreBoard(Turtle):
         self.reset_score()
         self.display_score()
         # self.write("GAME OVER", align=ALIGN, font=FONT)
+
+    def save_score(self):
+        with open(SCORE_FILE_NAME, mode="w") as file:
+            file.write(str(self.hiscore))
+        self.display_score()
+

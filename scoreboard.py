@@ -13,7 +13,7 @@ class ScoreBoard(Turtle):
         self.color("white")
         self.score = 0
         self.hiscore = 0
-        self.setpos(0, 280)
+        self.setpos(0, 260)
         self.display_score()
 
     def display_score(self):
@@ -23,7 +23,7 @@ class ScoreBoard(Turtle):
     def reset_pos(self):
         # x_new = (self.shapesize + 600 / 2)
         x_new = 0
-        y_new = 280
+        y_new = 250
         xy_pos = (x_new, y_new)
         self.setposition(xy_pos)
 
@@ -37,5 +37,7 @@ class ScoreBoard(Turtle):
         self.score = 0
 
     def game_over(self):
-        self.goto(0, 0)
-        self.write("GAME OVER", align=ALIGN, font=FONT)
+        # self.goto(0, 0)
+        self.reset_score()
+        self.display_score()
+        # self.write("GAME OVER", align=ALIGN, font=FONT)

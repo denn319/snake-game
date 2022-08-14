@@ -33,11 +33,12 @@ class ScoreBoard(Turtle):
         self.score += 10
         if self.hiscore < self.score:
             self.hiscore = self.score
+            self.save_score()
         self.display_score()
-        self.save_score()
 
     def reset_score(self):
         self.score = 0
+        self.display_score()
 
     def game_over(self):
         # self.goto(0, 0)
@@ -47,6 +48,6 @@ class ScoreBoard(Turtle):
 
     def save_score(self):
         with open(SCORE_FILE_NAME, mode="w") as file:
-            file.write(str(self.hiscore))
+            file.write(f"{self.hiscore}")
         self.display_score()
 
